@@ -9,8 +9,8 @@ from pathlib import Path
 from constants import DEFAULT_PACKAGE_PROMPT, ERROR_PUML
 
 # Proxy Setup for Bosch network. This shit need to run on PX by BD
-os.environ["http_proxy"] = "http://127.0.0.1:3128"
-os.environ["https_proxy"] = "http://127.0.0.1:3128"
+# os.environ["http_proxy"] = "http://127.0.0.1:3128"
+# os.environ["https_proxy"] = "http://127.0.0.1:3128"
 
 app = Flask(__name__)
 # TODO: Enable CORS for all routes. This CORS need Tuan Anh to review and limit the resource. Huy just leave allow all for now
