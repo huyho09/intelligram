@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f4f7f6; /* Light gray background */
+  overflow: hidden; /* Prevent scrolling on the body */
+}
+
+.app-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  overflow: hidden; /* Prevent scrolling at the top level */
+}
+
+.chat-panel {
+  width: 35%;
+  min-width: 300px; /* Minimum width for chat */
+  background-color: #ffffff; /* White chat panel */
+  border-right: 1px solid #e0e0e0; /* Separator line */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.diagram-panel {
+  flex-grow: 1; /* Takes the rest of the width */
+  background-color: #f8f9fa; /* Lighter background for diagram */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Prevent its own scrollbars if possible */
+}

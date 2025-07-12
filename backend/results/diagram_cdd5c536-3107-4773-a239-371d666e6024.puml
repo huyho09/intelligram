@@ -1,0 +1,40 @@
+@startuml
+start
+:User opens the login page;
+:User enters username and password;
+
+partition "Server" {
+    :Validate input (not empty);
+    -> Yes;
+    if (Username exists in DB?) then (No)
+        :Show "User not found" error;
+        :Return to login page;
+        stop
+    else (Yes)
+        if (Password correct?) then (No)
+            :Show "Incorrect password" error;
+            :Return to login page;
+            stop
+        else (Yes)
+            if (2FA enabled?) then (Yes)
+                :Send OTP to user;
+                :Wait for OTP input;
+                if (OTP correct?) then (Yes)
+                    :Generate the session token;
+                    :Redirect to dashboard;
+                else (No)
+                    :Show OTP error;
+                    :Retry OTP;
+                endif
+            else (No)
+                :Generate session token;
+                :Redirect to dashboard;
+            endif
+        endif
+    endif
+}
+
+:Store session;
+:Allow access to secure pages if session valid;
+stop
+@enduml

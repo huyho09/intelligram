@@ -1,0 +1,80 @@
+.panel-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.code-panel, .diagram-viewer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.code-panel {
+  border-right: 2px solid #dee2e6;
+}
+
+.panel-header {
+  padding: 0.75rem 1rem;
+  background-color: #e9ecef;
+  border-bottom: 1px solid #dee2e6;
+  font-weight: 600;
+  color: #495057;
+}
+
+.code-content {
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: #282c34; /* Dark background for code */
+}
+
+.code-display {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  resize: none;
+  color: #abb2bf; /* Light text for dark background */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.code-display:focus {
+  outline: none;
+}
+
+.diagram-content {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden; /* This is crucial for panning and zooming */
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diagram-image {
+  max-width: none; /* Allows image to be larger than container for zooming */
+  transition: transform 0.05s ease-out; /* Smooths dragging slightly */
+  transform-origin: center center;
+  will-change: transform; /* Performance hint for the browser */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 20px;
+  text-align: center;
+}

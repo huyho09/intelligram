@@ -1,0 +1,8 @@
+Flask
+openai
+plantuml
+python-dotenv
+six
+requests
+Flask-Cors
+flasgger

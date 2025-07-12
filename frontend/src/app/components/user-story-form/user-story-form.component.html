@@ -1,0 +1,36 @@
+<div>
+  <form (submit)="submitForm()">
+    <div class="mb-3">
+      <label class="form-label">[AS A]</label>
+      <input type="text" class="form-control" name="role" [(ngModel)]="role" placeholder="Enter role..." required />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">[I WANT]</label>
+      <input type="text" class="form-control" name="want" [(ngModel)]="want" placeholder="Describe what you want..."
+        required />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">[SO THAT]</label>
+      <input type="text" class="form-control" name="soThat" [(ngModel)]="soThat" placeholder="Describe the reason..."
+        required />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Acceptance Criteria</label>
+      <textarea class="form-control" [(ngModel)]="criteria" rows="5" [ngModelOptions]="{standalone: true}"
+        placeholder="[ACCEPT-1]: ..."></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Workflow Steps</label>
+      <textarea class="form-control" [(ngModel)]="workflowSteps" rows="5" [ngModelOptions]="{standalone: true}"
+        placeholder="Enter workflow steps..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+  <div class="mt-4" *ngIf="markdownOutput">
+    <h4>Markdown Output</h4>
+    <pre class="border p-3">{{ markdownOutput }}</pre>
+    <h4>Generated Diagram</h4>
+    <img *ngIf="diagramUrl" [src]="diagramUrl" alt="Generated Diagram" />
+  </div>
+</div>

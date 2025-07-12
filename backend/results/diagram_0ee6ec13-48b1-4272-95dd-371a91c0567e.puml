@@ -1,0 +1,39 @@
+@startuml
+skinparam linetype ortho
+
+start
+:User opens login page;
+:User enters username and password;
+if (Input not empty?) then (yes)
+    if (Username exists?) then (yes)
+        if (Password correct?) then (yes)
+            if (2FA enabled?) then (yes)
+                :Send OTP to user;
+                :Wait for OTP input;
+                if (OTP correct?) then (yes)
+                    :Generate session token;
+                    :Redirect to dashboard;
+                else (no)
+                    :Show "Incorrect OTP" error;
+                    :Retry OTP input;
+                endif
+            else (no)
+                :Generate session token;
+                :Redirect to dashboard;
+            endif
+        else (no)
+            :Show "Incorrect password" error;
+            :Return to login page;
+        endif
+    else (no)
+        :Show "User not found" error;
+        :Return to login page;
+    endif
+else (no)
+    :Show "Empty input" error;
+    :Return to login page;
+endif
+
+:Store session;
+:Allow access to secured pages if session is valid;
+@enduml

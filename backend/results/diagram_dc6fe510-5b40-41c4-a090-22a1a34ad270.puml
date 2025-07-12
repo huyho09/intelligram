@@ -1,0 +1,29 @@
+**"Draw a UML use case diagram for a 'User Login System'. Follow this layout:
+
+    Use a system boundary box labeled 'User Login System'
+
+    Place actors such as 'User' and 'Admin' outside the box
+
+    Inside the system, include use cases like:
+
+        Enter Username and Password
+
+        Validate Credentials
+
+        Forgot Password
+
+        Reset Password
+
+        Account Lockout (after failed attempts)
+
+        Login Success
+
+        Login Failure
+
+        Redirect to Dashboard
+
+        Enable Multi-Factor Authentication
+
+    Use <<include>> and <<extend>> relationships where necessary
+
+    Show lines from actors to relevant use cases, like in the product browsing diagram"**

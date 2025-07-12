@@ -1,0 +1,45 @@
+<div class="panel-container">
+  <div class="code-panel">
+    <div class="panel-header">PlantUML Code</div>
+    <div class="code-content">
+      <textarea
+        class="code-display"
+        [(ngModel)]="plantumlCode"
+        (ngModelChange)="onPlantUmlCodeChange($event)"
+        placeholder="Enter your PlantUML code here... The diagram will auto-update after you stop typing.">{{ plantumlCode }}</textarea>
+    </div>
+  </div>
+
+  <div class="diagram-viewer">
+    <div class="panel-header">Diagram</div>
+    <div class="diagram-content" (mousedown)="onMouseDown($event)">
+
+      <div *ngIf="isLoading && !errorMessage" class="overlay">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2">Generating Diagram...</p>
+      </div>
+
+      <div *ngIf="errorMessage" class="overlay">
+        <div class="alert alert-danger" role="alert">
+          <strong>Error:</strong> {{ errorMessage }}
+        </div>
+      </div>
+
+      <div *ngIf="!diagramUrl && !errorMessage && !isLoading" class="overlay">
+        <p class="text-secondary">Your diagram will appear here.</p>
+      </div>
+
+      <img #diagramImage
+           *ngIf="diagramUrl && !errorMessage"
+           [src]="diagramUrl"
+           alt="Generated Diagram"
+           class="diagram-image"
+           (load)="imageLoaded()"
+           (error)="imageError()"
+           [style.cursor]="isDragging ? 'grabbing' : 'grab'"
+           draggable="false" />
+    </div>
+  </div>
+</div>

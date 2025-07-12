@@ -1,0 +1,31 @@
+@startuml
+skinparam dpi 300
+skinparam linetype ortho
+
+rectangle "User Login System" {
+    usecase "Enter Username and Password" as U1
+    usecase "Validate Credentials" as U2
+    usecase "Forgot Password" as U3
+    usecase "Reset Password" as U4
+    usecase "Account Lockout" as U5
+    usecase "Login Success" as U6
+    usecase "Login Failure" as U7
+    usecase "Redirect to Dashboard" as U8
+    usecase "Enable Multi-Factor Authentication" as U9
+
+    U1 -> U2 : <<include>>
+    U2 -> U6 : <<include>>
+    U2 -> U7 : <<include>>
+    U7 -> U5 : <<extend>>
+    U6 -> U8 : <<include>>
+    U8 -> U9 : <<include>>
+}
+
+actor "User" as User
+actor "Admin" as Admin
+
+User --> U1
+User --> U3
+U3 --> U4 : <<include>>
+Admin --> U1
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+skinparam linetype ortho
+skinparam direction left to right
+
+start
+
+:User opens the login page;
+:User enters username and password;
+partition "System" {
+    :Validate input (not empty);
+    if (Is username empty?) then (yes)
+        :Show "User not found" error;
+        stop
+    endif
+    :Check username in DB;
+    if (Username exists?) then (no)
+        :Show "User not found" error;
+        stop
+    endif
+    :Check password;
+    if (Password correct?) then (no)
+        :Show "Incorrect password" error;
+        stop
+    endif
+    :Check if 2FA is enabled;
+    if (2FA enabled?) then (yes)
+        :Send OTP to user;
+        :Wait for OTP input;
+        if (OTP correct?) then (no)
+            :Show "Incorrect OTP" error;
+            :Retry OTP;
+            stop
+        endif
+    endif
+    :Generate session token;
+    :Redirect to dashboard;
+}
+:Store session;
+:Allow access to secure pages;
+stop
+
+@enduml
