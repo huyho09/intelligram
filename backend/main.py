@@ -258,4 +258,4 @@ def update_diagram_handler():
 if __name__ == "__main__":
     # Make sure 'results' directory exists
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    app.run(debug=True, port=5001)
+    app.run(host="0.0.0.0", debug=True, port=5001)
