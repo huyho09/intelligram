@@ -1,0 +1,24 @@
+@startuml
+skinparam dpi 300
+skinparam linetype ortho
+autonumber
+
+title Test Case Execution Workflow
+top to bottom direction
+
+:Step 1: Test Preparation;
+:Step 2: Navigate to the Login Page;
+:Step 3: Verify UI Elements;
+:Step 4: Perform Positive Login Test;
+:Step 5: Perform Negative Login Tests;
+:Step 6: Check Security Validation;
+:Step 7: Verify "Remember Me";
+:Step 8: Check Session Timeout;
+:Step 9: Verify Logout Functionality;
+:Step 10: Reporting and Clean-Up;
+
+note right of last
+Objective: Finalize test case execution.
+end note
+
+@enduml

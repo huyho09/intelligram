@@ -1,0 +1,20 @@
+@startuml
+skinparam dpi 300
+skinparam linetype ortho
+autonumber
+title Test Case Execution Steps
+top to bottom direction
+
+start
+:Test Preparation;
+:Navigate to the Login Page;
+:Verify UI Elements;
+:Perform Positive Login Test;
+:Perform Negative Login Tests;
+:Check Security Validation;
+:Verify "Remember Me";
+:Check Session Timeout;
+:Verify Logout Functionality;
+:Reporting and Clean-Up;
+end
+@enduml
