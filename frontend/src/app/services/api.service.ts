@@ -23,8 +23,8 @@ export class ApiService {
   //private apiUrl = "http://127.0.0.1:5001/chat";//"https://intelligram-ss3c.onrender.com/chat"//"http://127.0.0.1:5000/chat";
   //private baseApiUrl = "http://127.0.0.1:5001";//"https://intelligram-ss3c.onrender.com"//"http://127.0.0.1:5000"; // For diagram URLs
 
-  private apiUrl = "https://intelligram-ss3c.onrender.com/chat"
-  private baseApiUrl = "https://intelligram-ss3c.onrender.com" // For diagram URLs
+  private apiUrl = "https://intelligram-r19v.onrender.com/chat"
+  private baseApiUrl = "https://intelligram-r19v.onrender.com" // For diagram URLs
 
   constructor(private http: HttpClient) {}
 
