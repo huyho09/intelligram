@@ -2,7 +2,8 @@
 FROM python:3.11-slim
 
 # Install Java
-RUN apt-get update && apt-get install -y openjdk-17-jdk
+
+RUN apt-get update && apt-get install -y openjdk-17-jdk && apt-get install -y graphviz
 
 # Set the working directory in the container
 WORKDIR /app

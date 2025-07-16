@@ -20,17 +20,21 @@ def extract_plantuml_code(response: str) -> str | None:
 
     return snippet
 
-def generate_plantuml_from_chat(message_history: str, prompt=SYSTEM_PROMPT) -> str:
+
+def generate_plantuml_from_chat(message_history: str, prompt=SYSTEM_PROMPT, temperature: float = 0.7) -> str:
     openai.api_key = os.getenv("OPENAI_API_KEY")
     if not openai.api_key:
         raise ValueError("OpenAI API key is missing. Please check your .env file.")
 
     system_prompt = {"role": "system", "content": prompt}
-
     messages = [system_prompt] + message_history
 
     try:
-        response = openai.chat.completions.create(model="gpt-4o", messages=messages)
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
+            temperature=0.5  # <-- Added here
+        )
 
         full_response = response.choices[0].message.content
         extracted_plantuml_code = extract_plantuml_code(full_response)
