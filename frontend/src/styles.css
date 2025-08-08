@@ -1,36 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'bootstrap/dist/css/bootstrap.min.css';
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #f4f7f6; /* Light gray background */
-  overflow: hidden; /* Prevent scrolling on the body */
+.auth-container, .app-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
 .app-container {
-  display: flex;
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  overflow: hidden; /* Prevent scrolling at the top level */
+    max-width: 800px;
 }
 
-.chat-panel {
-  width: 35%;
-  min-width: 300px; /* Minimum width for chat */
-  background-color: #ffffff; /* White chat panel */
-  border-right: 1px solid #e0e0e0; /* Separator line */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+h1, h2 {
+    color: #1c1e21;
 }
 
-.diagram-panel {
-  flex-grow: 1; /* Takes the rest of the width */
-  background-color: #f8f9fa; /* Lighter background for diagram */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden; /* Prevent its own scrollbars if possible */
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #606770;
+    font-weight: 600;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.form-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+#results-area, #history-area {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+#diagram-image {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#plantuml-code {
+    background-color: #f6f8fa;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: monospace;
 }
