@@ -1,5 +1,6 @@
 # Use an official Python runtime as a parent image (version 3.11)
-FROM python:3.11-slim
+# Pinned to Debian bookworm: the default trixie base no longer ships openjdk-17-jdk
+FROM python:3.11-slim-bookworm
 
 # Install Java
 
