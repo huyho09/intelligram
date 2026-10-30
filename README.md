@@ -84,6 +84,7 @@ user-story-2-diagram/
 * **Java**: Required to run `plantuml.jar`. Ensure Java is installed and accessible via the `java` command in your terminal.
 * **PlantUML JAR**: Download the `plantuml.jar` file (or `plantuml-mit.jar`) from the [official PlantUML website](https://plantuml.com/download).
 * **OpenAI API Key**: You need an API key from [OpenAI](https://platform.openai.com/).
+* **Note**: This project is hosted on Render's free tier, which provides 0.1 CPU and 512 MB of RAM, so response times may be a bit slower.
 
 ### Installation & Setup
 
@@ -152,11 +153,28 @@ user-story-2-diagram/
 ## How to Use
 
 1.  Open the application in your browser.
-2.  Type your request in the chat input area on the left (e.g., "Show a user login process", "Add a step for password reset", "Change 'User' to 'Customer'").
-3.  Press Enter or click "Send".
-4.  The AI will process your request, and the diagram on the right will update.
-5.  Use the buttons above the diagram to view the PlantUML code or download the code/image.
+2.  if it ask for login: email: admin@gmail.com; pass: Password@123
+3.  Type your request in the chat input area on the left (e.g., "Show a user login process", "Add a step for password reset", "Change 'User' to 'Customer'").
+4.  Press Enter or click "Send".
+5.  The AI will process your request, and the diagram on the right will update.
+6.  Use the buttons above the diagram to view the PlantUML code or download the code/image.
 
+---
+
+Example Prompt:
+```
+Draw for me an activity diagram follow step bellow:
+Main steps
+1. Start — The user opens the registration page.
+2. Display form — The system displays the registration form.
+3. Enter details — The user enters their name, email, and password.
+4. Validate input — The system checks whether the input is valid.
+   - No: The user corrects the information.
+   - Yes: The system creates the account.
+5. Verify email — The user confirms their email address, if required.
+6. Complete registration — The system completes the registration process.
+7. End — The activity finishes.
+```
 ---
 
 ## Future Improvements / To-Do
