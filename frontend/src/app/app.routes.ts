@@ -1,16 +1,13 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AuthGuard } from './auth.guard';
 
+// Login is disabled for now: the dashboard is open to everyone.
+// To re-enable it, import LoginComponent and AuthGuard, add { path: 'login', component: LoginComponent },
+// add canActivate: [AuthGuard] to the '' route, and point the wildcard back to 'login'.
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  // Main application dashboard (homepage)
+  { path: '', component: DashboardComponent, pathMatch: 'full' },
 
-  // Route for the main application dashboard, protected by authGussard
-  // This means you must be logged in to access localhost:4200/
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard],pathMatch: 'full'},
-
-  // Wildcard route: Redirects any unknown paths to the root ('/')
-  // The root path is protected, so it will redirect to login if not authenticated.
-  { path: '**', redirectTo: 'login' }
+  // Wildcard route: Redirects any unknown paths (including the old /login) to the homepage
+  { path: '**', redirectTo: '' }
 ];
