@@ -31,7 +31,7 @@ def generate_plantuml_from_chat(message_history: str, prompt=SYSTEM_PROMPT, temp
 
     try:
         response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model=os.getenv("OPENAI_MODEL", "gpt-4o"),
             messages=messages,
             temperature=0.5  # <-- Added here
         )
