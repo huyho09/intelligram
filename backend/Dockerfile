@@ -5,6 +5,9 @@ FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y openjdk-17-jdk && apt-get install -y graphviz
 
+# Flush Python output immediately so print() calls show up in the Render logs
+ENV PYTHONUNBUFFERED=1
+
 # Set the working directory in the container
 WORKDIR /app
 
